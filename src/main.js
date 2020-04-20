@@ -16,6 +16,6 @@ game.settings = {
     multiplay: 0
 }
 
-//reserve keyboard vars
+// reserve keyboard vars
 let keyF, keyLEFT, keyRIGHT, keyA, keyN, keyM, keyUP, keyDOWN;
 

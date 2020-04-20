@@ -5,13 +5,13 @@ class Play extends Phaser.Scene {
 
     preload(){
         //load images/title sprites
-        this.load.image('rocket', './assets/rocket.png');
-        this.load.image('rocketPink', './assets/rocketPink.png');
-        this.load.image('rocketGreen', './assets/rocketGreen.png');
-        this.load.image('spaceship', './assets/spaceship.png');
-        this.load.image('starfield', './assets/starfield.png');
+        this.load.image('rocket', './assets/newrocket.png');
+        this.load.image('rocketPink', './assets/newrocketPink.png');
+        this.load.image('rocketGreen', './assets/newrocketGreen.png');
+        this.load.image('spaceship', './assets/newspaceship.png');
+        this.load.image('starfield', './assets/newstarfield.png');
         // load spritesheet
-        this.load.spritesheet('explosion', './assets/explosion.png', {frameWidth: 64,
+        this.load.spritesheet('explosion', './assets/newexplosion.png', {frameWidth: 64,
         frameHeight: 32, startFrame: 0, endFrame: 9});
         this.load.audio('sfx_select', './assets/blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/explosion38.wav');
