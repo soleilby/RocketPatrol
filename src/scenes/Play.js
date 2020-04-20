@@ -118,7 +118,6 @@ class Play extends Phaser.Scene {
         }
         // check key input for restart / menu
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyF)){
-            game.settings.spaceshipSpeed -= 1.5;
             this.scene.restart(this.p1Score);
         }
         if(this.gameOver && Phaser.Input.Keyboard.JustDown(keyLEFT)){
