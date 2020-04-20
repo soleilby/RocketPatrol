@@ -1,17 +1,15 @@
-class Menu extends Phaser.Scene {
+class MenuMultiplay extends Phaser.Scene {
     constructor() {
-        super("menuScene");
+        super("MenuMultiplayScene");
     }
 
     preload(){
-        // load audio
         this.load.audio('sfx_select', './assets/blip_select12.wav');
         this.load.audio('sfx_explosion', './assets/explosion38.wav');
         this.load.audio('sfx_rocket', './assets/rocket_shot.wav');
     }
 
     create() {
-        // menu display
         let menuConfig = {
         fontFamily: 'Courier',
         fontSize: '28px',
@@ -20,7 +18,7 @@ class Menu extends Phaser.Scene {
         align: 'right',
         padding: {
             top: 5,
-            bototm: 5,
+            bottom: 5,
         },
         fixedWidth: 0
         }   
@@ -30,19 +28,26 @@ class Menu extends Phaser.Scene {
         let centerY = game.config.height/2;
         let textSpacer = 64;
 
-        this.add.text(centerX, centerY - textSpacer, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY, 'Use ↔ arrows to move and (F) to Fire', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = '#f0f8ff';
+        this.add.text(centerX, centerY - textSpacer, 'ROCKET PATROL TWO-PLAYER', menuConfig).setOrigin(0.5);
+        menuConfig.fontSize = '24px';
+        menuConfig.backgroundColor = '#FF4466';
         menuConfig.color = '#843605';
-        this.add.text(centerX, centerY + textSpacer, 'Press ← for Easy or → for Hard', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = '#c9e9ff';
-        menuConfig.color = "#843605";
-        this.add.text(centerX, centerY + (2 * textSpacer), 'Press ↑ for Multiplayer', menuConfig).setOrigin(0.5);
-        
+        this.add.text(centerX, centerY, 'P1: Use ↔ arrows to move and (F) to Fire', menuConfig).setOrigin(0.5);
+        menuConfig.backgroundColor = '#C6FD66';
+        menuConfig.color = '#843605';
+        this.add.text(centerX, centerY + textSpacer, 'P2: Use <N M> keys to move and (A) to Fire', menuConfig).setOrigin(0.5);
+        menuConfig.fontSize = '28px';
+        menuConfig.backgroundColor = '#FEA9D3';
+        menuConfig.color = '#843605';
+        this.add.text(centerX, centerY + (2 * textSpacer), 'Press ← for Easy or → for Hard', menuConfig).setOrigin(0.5);
+        menuConfig.backgroundColor = '#F3B141';
+        menuConfig.color = '#843605';
+        this.add.text(centerX, centerY + (3 * textSpacer), 'Press ↓ for Single Player', menuConfig).setOrigin(0.5);
+
         // define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
         keyRIGHT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.RIGHT);
-        keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
+        keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
         
         // this.scene.start("playScene");
     }
@@ -53,7 +58,7 @@ class Menu extends Phaser.Scene {
             game.settings = {
                 spaceshipSpeed: 3,
                 gameTimer: 60000,
-                multiplay: 0
+                multiplay: 1
             }
             this.sound.play('sfx_select');
             this.scene.start("playScene");
@@ -63,16 +68,16 @@ class Menu extends Phaser.Scene {
             game.settings = {
                 spaceshipSpeed: 4,
                 gameTimer: 45000,
-                multiplay: 0
+                multiplay: 1
             }
             this.sound.play('sfx_select');
             this.scene.start("playScene");
         }
-        if(Phaser.Input.Keyboard.JustDown(keyUP)){
-            // go to multiplayer mode
-            game.settings = {multiplay: 1}
+        if(Phaser.Input.Keyboard.JustDown(keyDOWN)){
+            // go to two-player mode
+            game.settings = {multiplay: 0}
             this.sound.play('sfx_select');
-            this.scene.start("MenuMultiplayScene");
+            this.scene.start("menuScene");
         }
     }
 }
