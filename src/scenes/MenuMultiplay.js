@@ -30,14 +30,14 @@ class MenuMultiplay extends Phaser.Scene {
         let centerY = game.config.height/2;
         let textSpacer = 64;
 
-        this.add.text(centerX, centerY - textSpacer, 'ROCKET PATROL TWO-PLAYER', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY - textSpacer, 'ROCKET PATROL MULTIPLAYER', menuConfig).setOrigin(0.5);
         menuConfig.fontSize = '24px';
         menuConfig.backgroundColor = '#FF4466';
         menuConfig.color = '#843605';
         this.add.text(centerX, centerY, 'P1: Use ↔ arrows to move and (F) to Fire', menuConfig).setOrigin(0.5);
         menuConfig.backgroundColor = '#C6FD66';
         menuConfig.color = '#843605';
-        this.add.text(centerX, centerY + textSpacer, 'P2: Use <N M> keys to move and (A) to Fire', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY + textSpacer, 'P2: Use ←N M→ keys to move and (A) to Fire', menuConfig).setOrigin(0.5);
         menuConfig.fontSize = '28px';
         menuConfig.backgroundColor = '#FEA9D3';
         menuConfig.color = '#843605';
